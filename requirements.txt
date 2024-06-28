@@ -1,0 +1,17 @@
+transformers>=4.34.0
+wandb==0.15.3
+torch>=2.1.0
+xformers
+sentencepiece
+tokenizers
+accelerate
+bitsandbytes
+vllm
+fraction
+tqdm
+numpy
+fire
+openai
+scipy
+jsonlines
+pandas
