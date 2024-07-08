@@ -54,10 +54,36 @@ cd MATH-Minos
 pip install -r requirements.txt .
 ```
 
+## Training
+### Train a textual rm
+
+```python
+bash train_reward_7b.sh
+```
+
+### Train an outcome reward model
+
+```python
+cd RM/
+bash job_orm.sh
+```
+### Train a process reward model
+
+```python
+cd RM/
+bash job_prm.sh
+```
 ## Inference
 
 
+```python
+cd RM/
+bash inference_job.sh
 
+cd ../evaluation/
+python eval_gsm8k.py
+python eval_math.py
+```
 
 
 
