@@ -13,6 +13,8 @@ with Natural Language Feedback](https://arxiv.org/pdf/2406.14024)".
 
 - [2024-06-29] Our codebase is released now!
 
+- [2024-06-29] Our data is available at [HuggingFace](https://huggingface.co/datasets/KbsdJames/MATH-natural-language-feedback)!
+
 - [2024-06-20] Our Math - Minos paper is available at [ARXIV](https://arxiv.org/pdf/2406.14024)!
 
 ## Method
