@@ -10,6 +10,7 @@ with Natural Language Feedback](https://arxiv.org/pdf/2406.14024)".
 
 ## News
 
+- [2024-07-25] We upload our ORM/PRM [training data](https://disk.pku.edu.cn/link/AA613FB60BC09D449F97F0B294C1E57DD6), which is adapted from [MATH-Shepherd](https://huggingface.co/datasets/peiyi9979/Math-Shepherd). The ORM/PRM data is adapted to our repo, and the PRM data is tokenized. You can directly use them as the content of `--data_path` in RM training after you download and unzip it. 
 
 - [2024-06-29] Our codebase is released now!
 

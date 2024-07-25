@@ -186,18 +186,6 @@ def collate_fn(batch, tokenizer):
     )
     return d
 
-# def collate_fn_eval(batch, tokenizer):
-#     dict_keys = ['input_ids', 'attention_mask', 'labels']
-#     d = {k: [dic[k] for dic in batch] for k in dict_keys}
-#     d['input_ids'] = torch.nn.utils.rnn.pad_sequence(
-#         d['input_ids'], batch_first=True, padding_value=tokenizer.pad_token_id
-#     )
-#     d['attention_mask'] = torch.nn.utils.rnn.pad_sequence(
-#         d['attention_mask'], batch_first=True, padding_value=0
-#     )
-#     d['labels'] = torch.stack(d['labels'])
-#     d['labels'] = d['labels'].view(-1, 1)
-#     return d
 
 # define which metrics to compute for evaluation
 def compute_metrics(p):
@@ -280,7 +268,6 @@ def preprocess_labels(text, labels, tokenizer):
         assert len(l) == len(t_e)
         assert l.count(1) + l.count(0) == t_e.count(839)
 
-    # 
     # 确保labels是tensor
     labels_tensor = torch.tensor(labels)
     pass
@@ -390,48 +377,7 @@ if __name__ == "__main__":
     ################
     # Dataset
     ################
-    # # shepherd = []
-    # # with open(data_config.data_path) as f:
-    # #     for line in f.readlines():
-    # #         shepherd.append(json.loads(line))
-
-    # # input_list = [item["input"] for item in shepherd]
-    # # label_list = [item["label"] for item in shepherd]
-    # # task_list = [item["task"] for item in shepherd]
-
-    # # # 再次使用from_dict将这些列表转换为Dataset
-    # # dataset = Dataset.from_dict({"input": input_list, "labels": label_list, "task": task_list})
-    # # raw_datasets = DatasetDict(
-    # #     {"train": dataset}
-    # # )
-
-    # # raw_datasets = Dataset.from_dict({"train": shepherd})
-    # tokenized_ds = load_from_disk('/home/gbf/eval_llm/gsm8k-ScRel/data/PRM/math-shepherd-preprocessed')
-
-    # # eval_json = json.load(open('/home/gbf/eval_llm/gsm8k-ScRel/data/PRM/eval_set_tokenclassification.json'))
-    # # input_list = [item["text"] for item in eval_json]
-    # # label_list = [item["label"] for item in eval_json]
-
-    # # dataset = Dataset.from_dict({"input": input_list, "labels": label_list})
-    # # raw_datasets = DatasetDict(
-    # #     {"eval": dataset}
-    # # )
-    # # task_list = [item["task"] for item in shepherd]
-    # 
-    # tokenized_ds['eval'] = tokenized_ds['eval'].map(functools.partial(tokenize_examples, tokenizer=tokenizer), batched=True)
-    # # tokenized_ds = tokenized_ds.with_format('torch')
-
-
-
-    # 
-    # tokenized_ds.save_to_disk('/home/gbf/eval_llm/gsm8k-ScRel/data/PRM/math-shepherd-preprocessed_v3')
     tokenized_ds = load_from_disk(data_config.data_path)
-    # tokenized_ds['eval'] = tokenized_ds['eval'].map(functools.partial(tokenize_examples, tokenizer=tokenizer), batched=True)
-    
-    
-    # 
-    # train_dataset = tokenized_ds["train"]
-    # eval_dataset = tokenized_ds["eval"]
     ################
     # Training
     ################
